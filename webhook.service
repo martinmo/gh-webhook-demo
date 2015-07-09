@@ -1,0 +1,11 @@
+[Unit]
+Description=Github webhook
+
+[Service]
+ExecStart=/usr/bin/java -Xmx128m -jar /srv/webhook/webhook.jar --server.address=127.0.0.1
+User=nobody
+Nice=10
+EnvironmentFile=/etc/default/webhook
+
+[Install]
+WantedBy=multi-user.target
