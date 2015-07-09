@@ -1,6 +1,7 @@
 package net.mmorgenstern.gh;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,6 +30,7 @@ public class GithubWebhook {
     }
 
     public GithubWebhook(String secret) {
+        Objects.requireNonNull(secret);
         this.secret = secret;
     }
 
