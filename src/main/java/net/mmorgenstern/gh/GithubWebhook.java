@@ -30,7 +30,7 @@ public class GithubWebhook {
     }
 
     public GithubWebhook(String secret) {
-        Objects.requireNonNull(secret);
+        Objects.requireNonNull(secret, "No secret given.");
         this.secret = secret;
     }
 
