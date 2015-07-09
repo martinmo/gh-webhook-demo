@@ -41,4 +41,11 @@ public class GithubWebhookTest {
         assertThat(entity.getStatusCode(), equalTo(HttpStatus.OK));
         assertThat(entity.getBody(), containsString("Signature ok"));
     }
+
+    @Test
+    public void testShortSignature() throws IOException {
+        ResponseEntity<String> entity = hook.handle("sha1=5112055c05-snip-70e194e9f45b", "hello");
+        assertThat(entity.getStatusCode(), equalTo(HttpStatus.UNAUTHORIZED));
+        assertThat(entity.getBody(), containsString("Invalid"));
+    }
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @EnableAutoConfiguration
 public class GithubWebhook {
     private static final String EOL = "\n";
+    private static final int SIGNATURE_LENGTH = 45;
     private final String secret;
 
     public GithubWebhook() {
@@ -43,8 +44,9 @@ public class GithubWebhook {
         }
 
         String computed = String.format("sha1=%s", HmacUtils.hmacSha1Hex(secret, payload));
+        boolean invalidLength = signature.length() != SIGNATURE_LENGTH;
 
-        if (!StringUtils.constantTimeCompare(signature, computed)) {
+        if (invalidLength || !StringUtils.constantTimeCompare(signature, computed)) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid signature." + EOL);
         }
 
