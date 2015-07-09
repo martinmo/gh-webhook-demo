@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'spring-boot'
+apply plugin: 'net.saliman.cobertura'
 
 repositories {
     mavenCentral()
@@ -10,7 +11,11 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE")
+    compile 'org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE'
+    compile 'commons-codec:commons-codec:1.10'
+    compile 'commons-io:commons-io:2.4'
+    testCompile 'junit:junit:4.12'
+    testCompile "org.mockito:mockito-core:1.+"
 }
 
 buildscript {
@@ -19,6 +24,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE'
+        classpath 'net.saliman:gradle-cobertura-plugin:2.2.7'
     }
 }
