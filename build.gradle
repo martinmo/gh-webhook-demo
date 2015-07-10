@@ -16,6 +16,22 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
+ext {
+    commit = 'git rev-parse --short HEAD'.execute().text.trim()
+    branch = 'git rev-parse --abbrev-ref --symbolic HEAD'.execute().text.trim()
+}
+
+version = '0.1.0-dev'
+
+processResources {
+    expand(
+        timestamp: new Date(),
+        commit: commit,
+        branch: branch,
+        version: project.version
+    )
+}
+
 buildscript {
     repositories {
         mavenCentral()
