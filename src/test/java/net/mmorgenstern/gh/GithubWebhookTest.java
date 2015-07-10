@@ -39,7 +39,7 @@ public class GithubWebhookTest {
         ResponseEntity<String> entity = hook
                 .handle("sha1=5112055c05f944f85755efc5cd8970e194e9f45b", "hello");
         assertThat(entity.getStatusCode(), equalTo(HttpStatus.OK));
-        assertThat(entity.getBody(), containsString("Signature ok"));
+        assertThat(entity.getBody(), containsString("Signature OK"));
     }
 
     @Test

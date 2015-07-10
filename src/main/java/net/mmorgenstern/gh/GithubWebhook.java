@@ -50,9 +50,7 @@ public class GithubWebhook {
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-Webhook-Version", String.format("%s/%s", version, commitId));
 
-        if (signature == null)
-
-        {
+        if (signature == null) {
             return new ResponseEntity<>("No signature given." + EOL, headers,
                     HttpStatus.BAD_REQUEST);
         }
@@ -60,23 +58,19 @@ public class GithubWebhook {
         String computed = String.format("sha1=%s", HmacUtils.hmacSha1Hex(secret, payload));
         boolean invalidLength = signature.length() != SIGNATURE_LENGTH;
 
-        if (invalidLength || !StringUtils.constantTimeCompare(signature, computed))
-
-        {
+        if (invalidLength || !StringUtils.constantTimeCompare(signature, computed)) {
             return new ResponseEntity<>("Invalid signature." + EOL, headers,
                     HttpStatus.UNAUTHORIZED);
         }
 
         int bytes = payload.getBytes().length;
         StringBuilder message = new StringBuilder();
-        message.append("Signature ok.").append(EOL);
+        message.append("Signature OK.").append(EOL);
         message.append(String.format("Received %d bytes.", bytes)).append(EOL);
         return new ResponseEntity<>(message.toString(), headers, HttpStatus.OK);
-
     }
 
     public static void main(String[] args) {
         SpringApplication.run(GithubWebhook.class, args);
     }
-
 }
