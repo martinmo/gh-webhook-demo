@@ -39,6 +39,6 @@ buildscript {
 
     dependencies {
         classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.8.RELEASE'
-        classpath 'net.saliman:gradle-cobertura-plugin:2.2.7'
+        classpath 'net.saliman:gradle-cobertura-plugin:2.3.2'
     }
 }
