@@ -1,4 +1,5 @@
-# github-webhook-java
+[![Build Status](https://travis-ci.org/martinmo/gh-webhook-demo.svg?branch=master)](https://travis-ci.org/martinmo/gh-webhook-demo)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 Proof of concept implementation of a GitHub webhook endpoint using [Spring Boot][spring-boot],
 demonstrating
