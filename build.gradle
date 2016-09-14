@@ -11,7 +11,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web:1.2.8.RELEASE'
+    compile 'org.springframework.boot:spring-boot-starter-web:1.4.0.RELEASE'
     compile 'commons-codec:commons-codec:1.10'
     testCompile 'junit:junit:4.12'
 }
@@ -38,7 +38,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.2.8.RELEASE'
+        classpath 'org.springframework.boot:spring-boot-gradle-plugin:1.4.0.RELEASE'
         classpath 'net.saliman:gradle-cobertura-plugin:2.3.2'
     }
 }
