@@ -20,7 +20,7 @@ The code also demonstrates a way to include version information into the applica
 
 Run locally with:
 
-    SECRET_KEY=secret gradle -q run
+    SECRET_KEY=secret ./gradlew -q run
 
 Now you can test the endpoint using `curl` and an example message `foo`, for which the HMAC-SHA1
 is `9baed91be7f58b57c824b60da7cb262b2ecafbd2`:
@@ -50,7 +50,7 @@ commit id. This can be very helpful during debugging!
 
 Build an executable JAR, deploy it and install supporting files:
 
-    gradle -q clean build
+    ./gradlew -q clean build
     sudo cp build/libs/github-webhook-java-*.jar /srv/webhook/webhook.jar
     sudo cp webhook.service /etc/systemd/system
     sudo systemctl enable webhook.service
